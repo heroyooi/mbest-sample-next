@@ -1,0 +1,18 @@
+{
+  "name": "next-sample-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next.js CRUD frontend with zustand and tanstack-query",
+  "scripts": {
+    "dev": "next dev -p 5174",
+    "build": "next build",
+    "start": "next start -p 5174"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.66.8",
+    "next": "^14.2.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.3"
+  }
+}
