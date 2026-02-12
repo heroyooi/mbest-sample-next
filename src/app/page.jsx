@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect } from "react";
@@ -14,14 +14,19 @@ export default function ListPage() {
   return (
     <section className="card">
       <div className="row between">
-        <h2>게시글 목록</h2>
-        <Link href="/write" className="link-btn">
-          글쓰기
-        </Link>
+        <h2>Posts</h2>
+        <div className="row">
+          <Link href="/auth" className="link-btn">
+            Auth Demo
+          </Link>
+          <Link href="/write" className="link-btn">
+            Write
+          </Link>
+        </div>
       </div>
 
       {error ? <p className="error">{error}</p> : null}
-      {loading ? <p>불러오는 중...</p> : null}
+      {loading ? <p>Loading...</p> : null}
 
       {!loading && posts.length > 0 ? (
         <ul className="list">
@@ -30,13 +35,13 @@ export default function ListPage() {
               <Link href={`/${post.id}`} className="title-link">
                 {post.title}
               </Link>
-              <small>#{post.id} | 수정 {new Date(post.updatedAt).toLocaleString()}</small>
+              <small>#{post.id} | updated {new Date(post.updatedAt).toLocaleString()}</small>
             </li>
           ))}
         </ul>
       ) : null}
 
-      {!loading && posts.length === 0 ? <p>게시글이 없습니다.</p> : null}
+      {!loading && posts.length === 0 ? <p>No posts found.</p> : null}
     </section>
   );
 }
